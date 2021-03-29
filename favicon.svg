@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="90" height="120" viewBox="0 0 90 120" xml:space="preserve">
+<desc>Sdelano: LOGOZA.RU</desc>
+<defs>
+
+                <style type="text/css">
+                    @import url(http://fonts.googleapis.com/css?family=Open+Sans:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i)
+                </style>
+            
+                <style type="text/css">
+                    @import url(http://fonts.googleapis.com/css?family=Open+Sans:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i)
+                </style>
+            
+</defs>
+<rect x="0" y="0" width="100%" height="100%" fill="#ffffff"></rect>
+<g transform="matrix(1 0 0 1 45 60)"  >
+<g style=""   >
+		<g transform="matrix(0.62 0 0 0.62 0 0)"  >
+<filter id="SVGID_2708" y="-21%" height="142%" x="-20%" width="140%" >
+	<feGaussianBlur in="SourceAlpha" stdDeviation="0"></feGaussianBlur>
+	<feOffset dx="0" dy="-1" result="oBlur" ></feOffset>
+	<feFlood flood-color="rgb(255,255,255)" flood-opacity="1"/>
+	<feComposite in2="oBlur" operator="in" />
+	<feMerge>
+		<feMergeNode></feMergeNode>
+		<feMergeNode in="SourceGraphic"></feMergeNode>
+	</feMerge>
+</filter>
+<g style="filter: url(#SVGID_2708);"   >
+		<g transform="matrix(1 0 0 1 0 0)" id="Capa_1"  >
+<path style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;"  transform=" translate(-93.87, -93.87)" d="M 157.013 0 H 30.72 c -1.884 0 -3.413 1.529 -3.413 3.413 V 184.32 c 0 1.884 1.529 3.413 3.413 3.413 h 126.293 c 1.884 0 3.413 -1.529 3.413 -3.413 V 3.413 C 160.427 1.529 158.897 0 157.013 0 z M 153.6 180.907 H 34.133 V 6.827 H 153.6 V 180.907 z" stroke-linecap="round" />
+</g>
+		<g transform="matrix(1 0 0 1 1.71 1.71)" id="Capa_1"  >
+<path style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;"  transform=" translate(-95.57, -95.57)" d="M 115.657 93.583 L 98.347 69.448 c -0.64 -0.893 -1.672 -1.423 -2.773 -1.423 c -1.101 0 -2.133 0.531 -2.773 1.423 L 75.489 93.583 c -0.853 1.19 -0.853 2.79 0 3.98 L 92.8 121.701 c 0.64 0.893 1.673 1.423 2.773 1.423 c 1.101 0 2.133 -0.531 2.773 -1.423 l 17.311 -24.137 C 116.511 96.374 116.511 94.773 115.657 93.583 z M 95.573 113.853 l -13.111 -18.28 l 13.111 -18.278 l 13.111 18.278 L 95.573 113.853 z" stroke-linecap="round" />
+</g>
+		<g transform="matrix(1 0 0 1 -42.67 -66.56)" id="Capa_1"  >
+<path style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;"  transform=" translate(-51.2, -27.31)" d="M 63.764 25.317 l -9.791 -13.653 c -0.64 -0.893 -1.673 -1.423 -2.773 -1.423 c -1.101 0 -2.133 0.531 -2.773 1.423 l -9.791 13.653 c -0.853 1.19 -0.853 2.79 0 3.98 l 9.791 13.653 c 0.64 0.893 1.673 1.423 2.773 1.423 c 1.101 0 2.133 -0.531 2.773 -1.423 l 9.791 -13.653 C 64.618 28.107 64.618 26.506 63.764 25.317 z M 51.2 35.103 l -5.591 -7.796 l 5.591 -7.796 l 5.591 7.796 L 51.2 35.103 z" stroke-linecap="round" />
+</g>
+		<g transform="matrix(1 0 0 1 42.67 66.56)" id="Capa_1"  >
+<path style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;"  transform=" translate(-136.53, -160.43)" d="M 149.098 158.437 l -9.791 -13.653 c -0.64 -0.893 -1.673 -1.423 -2.773 -1.423 c -1.101 0 -2.133 0.531 -2.773 1.423 l -9.791 13.653 c -0.853 1.19 -0.853 2.79 0 3.98 l 9.791 13.653 c 0.64 0.893 1.673 1.423 2.773 1.423 c 1.101 0 2.133 -0.531 2.773 -1.423 l 9.791 -13.653 C 149.951 161.227 149.951 159.626 149.098 158.437 z M 136.533 168.223 l -5.591 -7.796 l 5.591 -7.796 l 5.591 7.796 L 136.533 168.223 z" stroke-linecap="round" />
+</g>
+</g>
+</g>
+		<g transform="matrix(1 0 0 1 -42 0)" style="filter: url(#SVGID_2709);"  >
+<filter id="SVGID_2709" y="-66%" height="232%" x="-1270%" width="2640%" >
+	<feGaussianBlur in="SourceAlpha" stdDeviation="12.5"></feGaussianBlur>
+	<feOffset dx="0" dy="0" result="oBlur" ></feOffset>
+	<feFlood flood-color="rgb(0,0,0)" flood-opacity="1"/>
+	<feComposite in2="oBlur" operator="in" />
+	<feMerge>
+		<feMergeNode></feMergeNode>
+		<feMergeNode in="SourceGraphic"></feMergeNode>
+	</feMerge>
+</filter>
+		<text xml:space="preserve" font-family="Open Sans" font-size="48" font-style="normal" font-weight="700" style="stroke: rgb(0,0,0); stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1; white-space: pre;" paint-order="stroke"  ></text>
+</g>
+</g>
+</g>
+</svg>
