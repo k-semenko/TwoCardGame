@@ -95,15 +95,15 @@ main {
     justify-content: center;
     width: 100%;
     min-height: 100%;
-    background: url("/files/bg.jpg") no-repeat center;
+    background: url("/files/bg.jpeg") no-repeat center;
     background-size: cover;
 }
 
 #toolbar {
     display: none;
-    /*box-shadow: 0 0 5px black;*/
-    margin: 15px;
-    padding: 15px;
+    /*margin: 15px 0;*/
+    padding: 30px;
+    background: rgba(225, 225, 225, 0.9);
 }
 
 #toolbar > .toolbar-buttons {
@@ -119,25 +119,20 @@ main {
 .life {
     background: url("/files/life.svg") no-repeat;
     background-size: contain;
+    margin: 5px;
     width: 40px;
     height: 40px;
 }
 
-.life svg {
-    -webkit-filter: drop-shadow(0 0 1px black);
-    filter: drop-shadow(0 0 1px black);
-}
-
 .container {
     width: 1300px;
-    /*height: 750px;*/
     align-self: center;
     padding: 15px 15px 30px 15px;
     margin: 10px;
-    background: white;
-    border: 1px solid black;
-    box-shadow: 0 0 10px white;
-    border-radius: 25px;
+    /*background: rgba(225, 225, 225, 0.9);*/
+    /*border: 1px solid black;*/
+    /*box-shadow: 0 0 10px white;*/
+    /*border-radius: 25px;*/
 }
 
 .text-center {
@@ -203,13 +198,19 @@ main {
     display: none;
     height: 100%;
     flex-wrap: wrap;
+    padding: 30px 0;
     justify-content: center;
+    background: rgba(225, 225, 225, 0.9);
 }
 
 .start_field {
     display: flex;
     flex-direction: column;
-    width: 100%;
+    margin: auto;
+    padding: 25px;
+    width: 80%;
+    background: rgba(225, 225, 225, 0.9);
+
 }
 
 .start_field h2 {
@@ -221,7 +222,7 @@ main {
     width: 300px;
     height: 300px;
     flex-grow: 1;
-    fill: silver;
+    fill: white;
     -webkit-filter: drop-shadow(0 0 5px rgba(0, 0, 0, .7));
     filter: drop-shadow(0 0 5px rgba(0, 0, 0, .7));
     transition: 1s;
@@ -235,7 +236,7 @@ main {
 }
 
 #play-btn:hover svg {
-    fill: white;
+    fill: sandybrown;
     -webkit-filter: drop-shadow(0 0 1px black);
     filter: drop-shadow(0 0 1px black);
 
@@ -247,7 +248,6 @@ main {
     border-radius: 25px;
     margin: auto;
     padding: 10px;
-    box-shadow: 0 0 5px black;
 }
 
 .difficulty ul {
@@ -328,7 +328,10 @@ main {
     min-height: 100%;
     min-width: 100%;
     box-shadow: 0 0 1px black;
+}
 
+.card-body svg {
+    filter: drop-shadow(0 0 2px black);
 }
 
 .card.opened {

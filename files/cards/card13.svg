@@ -13,7 +13,7 @@
                 </style>
             
 </defs>
-<rect x="0" y="0" width="100%" height="100%" fill="#ffffff"></rect>
+<!--<rect x="0" y="0" width="100%" height="100%" fill="#ffffff"></rect>-->
 <g transform="matrix(1 0 0 1 150 150)"  >
 <g style=""   >
 		<g transform="matrix(0.51 0 0 0.51 0 0)"  >
@@ -29,7 +29,7 @@
 </filter>
 <g style="filter: url(#SVGID_8936);"   >
 		<g transform="matrix(1 0 0 1 0 0)" id="Capa_1"  >
-<circle style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(254,198,6); fill-rule: nonzero; opacity: 1;"  cx="0" cy="0" r="245.76" />
+<!--<circle style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(254,198,6); fill-rule: nonzero; opacity: 1;"  cx="0" cy="0" r="245.76" />-->
 </g>
 		<g transform="matrix(1 0 0 1 66.11 0)" id="Capa_1"  >
 <path style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;"  transform=" translate(-311.87, -245.76)" d="M 302.861 295.966 c -1.787 0 -3.565 -0.676 -4.926 -2.028 c -2.721 -2.704 -2.721 -7.085 0 -9.789 c 21.301 -21.164 21.301 -55.613 0 -76.777 c -2.721 -2.704 -2.721 -7.085 0 -9.789 c 2.722 -2.704 7.131 -2.704 9.852 0 c 26.735 26.563 26.735 69.792 0 96.355 C 306.427 295.289 304.649 295.966 302.861 295.966 z" stroke-linecap="round" />
@@ -44,7 +44,7 @@
 <rect style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(68,68,68); fill-rule: nonzero; opacity: 1;"  x="-13.02" y="-140.8" rx="0" ry="0" width="26.04" height="281.6" />
 </g>
 		<g transform="matrix(1 0 0 1 -41.49 0)" id="Capa_1"  >
-<polygon style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(255,255,255); fill-rule: nonzero; opacity: 1;"  points="-42.23,67.25 42.23,140.8 42.23,-140.8 -42.23,-67.33 " />
+<polygon style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(200,200,200); fill-rule: nonzero; opacity: 1;"  points="-42.23,67.25 42.23,140.8 42.23,-140.8 -42.23,-67.33 " />
 </g>
 		<g transform="matrix(1 0 0 1 -112.26 0)" id="Capa_1"  >
 <path style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;"  transform=" translate(-133.5, -245.76)" d="M 113.982 178.508 c -4.983 0 -9.022 4.014 -9.022 8.962 v 116.58 c 0 4.949 4.039 8.963 9.022 8.963 h 48.055 V 178.508 H 113.982 z" stroke-linecap="round" />

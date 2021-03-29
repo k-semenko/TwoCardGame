@@ -13,7 +13,7 @@
                 </style>
             
 </defs>
-<rect x="0" y="0" width="100%" height="100%" fill="#ffffff"></rect>
+<!--<rect x="0" y="0" width="100%" height="100%" fill="#ffffff"></rect>-->
 <g transform="matrix(1 0 0 1 150 150)"  >
 <g style=""   >
 		<g transform="matrix(0.51 0 0 0.51 0 0)"  >
@@ -29,7 +29,7 @@
 </filter>
 <g style="filter: url(#SVGID_3570);"   >
 		<g transform="matrix(1 0 0 1 0 0)" id="Capa_1"  >
-<circle style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(254,198,6); fill-rule: nonzero; opacity: 1;"  cx="0" cy="0" r="245.76" />
+<!--<circle style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(254,198,6); fill-rule: nonzero; opacity: 1;"  cx="0" cy="0" r="245.76" />-->
 </g>
 		<g transform="matrix(1 0 0 1 0 -110.4)" id="Capa_1"  >
 <path style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(226,34,17); fill-rule: nonzero; opacity: 1;"  transform=" translate(-245.76, -135.36)" d="M 374.761 104.96 H 116.76 c -6.518 0 -11.8 5.283 -11.8 11.799 v 49.001 h 281.6 v -49.001 C 386.56 110.243 381.278 104.96 374.761 104.96 z" stroke-linecap="round" />

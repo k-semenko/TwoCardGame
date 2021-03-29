@@ -42,10 +42,10 @@ $(document).ready(function () {
 
         if (cardCount === 12) {
             size = {'width': '140', 'height': '220'};
-        } else if (cardCount === 15) {
-            size = {'width': '130', 'height': '200', 'margin': '15px 40px'};
-        } else if (cardCount === 32) {
-            size = {'width': '80', 'height': '150', 'margin': '15px 25px'};
+        } else if (cardCount === 18) {
+            size = {'width': '120', 'height': '180', 'margin': '15px 30px'};
+        } else if (cardCount === 27) {
+            size = {'width': '80', 'height': '140', 'margin': '15px 20px'};
         }
 
         allCards.each(function () {
@@ -54,6 +54,7 @@ $(document).ready(function () {
         });
     }
 
+    // Функция выборв сложности
     function selectDifficulty() {
         let diffBtn = $('.difficulty').find('li');
         diffBtn.each(function () {
@@ -71,13 +72,13 @@ $(document).ready(function () {
                     cardsWithBugs = 2;
                     firstViewCardsTime = 2000;
                 } else if (diffGP === 'Normal') {
-                    cardCount = 15;
-                    cardsWithBugs = 3;
+                    cardCount = 18;
+                    cardsWithBugs = 4;
                     firstViewCardsTime = 4000;
                 } else if (diffGP === 'Hard') {
-                    cardCount = 32;
-                    cardsWithBugs = 6;
-                    firstViewCardsTime = 6000;
+                    cardCount = 27;
+                    cardsWithBugs = 7;
+                    firstViewCardsTime = 10000;
                 } else {
                     console.error('Не выбран уровень сложности игры!')
                 }
@@ -85,6 +86,7 @@ $(document).ready(function () {
         });
     }
 
+    // Функция проверки пройгрыша
     function gameOver(minus) {
         if (minus === 'Bug') {
             getNotice("<strong>Вы наткнулись на BugProd!</strong> <br> " +
@@ -106,23 +108,24 @@ $(document).ready(function () {
                 function () {
                     life = 3;
                     lifePic.show();
+                    allCards.remove();
+                    startGame();
                 });
         }
     }
 
+    // Функция проверки завершения раунда
     function checkRoundComplete() {
         let blockedCards = $('.game_field').find('.card.blocked');
         if (Number(blockedCards.length) === Number(cardCount - cardsWithBugs)) {
-            return getNotice('<strong>Поздравляю!</strong> <br>Вы победили в этом рауне! <br> Сыграем еще раз?')
+            return getNotice('<strong>Вы вышли в релиз без багов!</strong> <br> Провести регресс повторно?')
         }
     }
 
     // Функция для генерации индексов для карт, в которых будут баги
     function getCardsBgFunction(min, max, bugsCount) {
-        // Объявляем переменные массивов для генерации индексов карт и финального массива с background-image
         let intArr = [];
         let finalArr = [];
-// Формируем массив с индексами карт в случайном порядке
         for (let i = 0; i <= max; i++) {
             let int = Math.floor(Math.random() * (max - min + 1)) + min;
             if (intArr.indexOf(int) === -1 || intArr.length === 0) {
@@ -137,7 +140,7 @@ $(document).ready(function () {
         bugs.forEach(function (item, index, array) {
             finalArr.push({
                 index: item,
-                bg: 'red url("/files/cards/bug.svg") no-repeat center',
+                bg: '#EEE url("/files/cards/bug.svg") no-repeat center',
                 card: 0,
             })
         });
@@ -148,12 +151,12 @@ $(document).ready(function () {
             cards.forEach(function (item, index) {
                 finalArr.push({
                     index: item,
-                    bg: '#FFF url("/files/cards/card' + Number(x + 1) + '.svg") no-repeat center',
+                    bg: '#EEE url("/files/cards/card' + Number(x + 1) + '.svg") no-repeat center',
                     card: Number(x + 1)
                 });
             });
         }
-        // Возвращаем финальный массив
+
         return finalArr;
     }
 
@@ -187,7 +190,7 @@ $(document).ready(function () {
         gameField.css('display', 'flex');
         toolbar.css('display', 'flex');
         for (let i = 0; i < cardCount; i++) {
-            gameField.append('<div class="card" data-card=""><div class="card-body"></div></div>');
+            gameField.append('<div class="card shake" data-card=""><div class="card-body"></div></div>');
         }
         allCards = $(document).find('.card'); // Находим все карты после создания игровой области
         cardCount = allCards.length; // Считаем кол-во карт
@@ -209,8 +212,7 @@ $(document).ready(function () {
             let el = $(this);
             el.click(function () {
                 if (el.hasClass('opened')) {
-                    console.warn('Карта уже открыта или вы завершили раунд')
-                    return false;
+                    console.warn('Карта уже открыта или вы завершили раунд');
                 } else {
                     el.addClass('opened');
                     selectedCards++
@@ -239,14 +241,13 @@ $(document).ready(function () {
                     } else {
                         selectedCards = 0;
                         gameOver(1)
-
                         closeOpenedCards();
                         console.warn('Карты разные... =(')
                     }
                 } else if (selectedCards === 1) {
                     console.log('Выбрана одна карта!')
                 } else {
-                    console.error('Неизвестная отработка при сравнении карт.')
+                    console.error('Неизвестная отработка при сравнении карт. SelectCard === 0')
                 }
             });
         });
