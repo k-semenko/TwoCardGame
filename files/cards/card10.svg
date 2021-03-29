@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="300" height="300" viewBox="0 0 300 300" xml:space="preserve">
+<desc>Sdelano: LOGOZA.RU</desc>
+<defs>
+
+                <style type="text/css">
+                    @import url(http://fonts.googleapis.com/css?family=Open+Sans:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i)
+                </style>
+            
+                <style type="text/css">
+                    @import url(http://fonts.googleapis.com/css?family=Open+Sans:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i)
+                </style>
+            
+</defs>
+<rect x="0" y="0" width="100%" height="100%" fill="#ffffff"></rect>
+<g transform="matrix(1 0 0 1 150 150)"  >
+<g style=""   >
+		<g transform="matrix(0.51 0 0 0.51 0 0)"  >
+<filter id="SVGID_6408" y="-20%" height="140%" x="-20%" width="140%" >
+	<feGaussianBlur in="SourceAlpha" stdDeviation="0"></feGaussianBlur>
+	<feOffset dx="0" dy="0" result="oBlur" ></feOffset>
+	<feFlood flood-color="rgb(0,0,0)" flood-opacity="1"/>
+	<feComposite in2="oBlur" operator="in" />
+	<feMerge>
+		<feMergeNode></feMergeNode>
+		<feMergeNode in="SourceGraphic"></feMergeNode>
+	</feMerge>
+</filter>
+<g style="filter: url(#SVGID_6408);"   >
+		<g transform="matrix(1 0 0 1 0 0)" id="Capa_1"  >
+<circle style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(254,198,6); fill-rule: nonzero; opacity: 1;"  cx="0" cy="0" r="245.76" />
+</g>
+		<g transform="matrix(1 0 0 1 -23.35 -14.76)" id="Capa_1"  >
+<path style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(221,221,221); fill-rule: nonzero; opacity: 1;"  transform=" translate(-222.41, -231)" d="M 261.067 104.96 H 132.983 c -3.266 0 -5.914 2.648 -5.914 5.914 v 240.245 c 0 3.266 2.648 5.914 5.914 5.914 h 178.859 c 3.267 0 5.914 -2.648 5.914 -5.914 V 161.65 c 0 -1.568 -0.623 -3.073 -1.732 -4.182 l -50.776 -50.776 C 264.139 105.583 262.635 104.96 261.067 104.96 z" stroke-linecap="round" />
+</g>
+		<g transform="matrix(1 0 0 1 44.59 -113.39)" id="Capa_1"  >
+<path style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(102,102,102); fill-rule: nonzero; opacity: 1;"  transform=" translate(-290.35, -132.37)" d="M 269.43 159.2 h 47.751 c -0.29 -0.631 -0.657 -1.231 -1.158 -1.732 l -25.388 -25.388 l -25.388 -25.388 c -0.501 -0.501 -1.101 -0.867 -1.732 -1.157 v 47.751 C 263.516 156.553 266.164 159.2 269.43 159.2 z" stroke-linecap="round" />
+</g>
+		<g transform="matrix(1 0 0 1 -23.34 -56.86)" id="Capa_1"  >
+<rect style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(102,102,102); fill-rule: nonzero; opacity: 1;"  x="-77.7265" y="-4.5825" rx="0" ry="0" width="155.453" height="9.165" />
+</g>
+		<g transform="matrix(1 0 0 1 -23.34 -30.03)" id="Capa_1"  >
+<rect style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(102,102,102); fill-rule: nonzero; opacity: 1;"  x="-77.7265" y="-4.5825" rx="0" ry="0" width="155.453" height="9.165" />
+</g>
+		<g transform="matrix(1 0 0 1 -42.72 -3.25)" id="Capa_1"  >
+<rect style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(102,102,102); fill-rule: nonzero; opacity: 1;"  x="-58.3525" y="-4.5825" rx="0" ry="0" width="116.705" height="9.165" />
+</g>
+		<g transform="matrix(1 0 0 1 -63.27 77.18)" id="Capa_1"  >
+<rect style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(102,102,102); fill-rule: nonzero; opacity: 1;"  x="-37.801" y="-4.5825" rx="0" ry="0" width="75.602" height="9.165" />
+</g>
+		<g transform="matrix(1 0 0 1 -23.35 50.36)" id="Capa_1"  >
+<polygon style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(102,102,102); fill-rule: nonzero; opacity: 1;"  points="-77.73,-4.58 -77.73,4.58 41.81,4.58 77.73,4.58 77.73,-4.58 42.91,-4.58 " />
+</g>
+		<g transform="matrix(1 0 0 1 -23.35 23.56)" id="Capa_1"  >
+<polygon style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(102,102,102); fill-rule: nonzero; opacity: 1;"  points="55.72,-4.58 -77.73,-4.58 -77.73,4.58 49.5,4.58 77.73,4.58 77.73,-4.58 " />
+</g>
+		<g transform="matrix(1 0 0 1 23.35 14.76)" id="Capa_1"  >
+<path style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(238,238,238); fill-rule: nonzero; opacity: 1;"  transform=" translate(-269.11, -260.52)" d="M 307.762 134.488 H 179.678 c -3.267 0 -5.914 2.648 -5.914 5.914 v 240.245 c 0 3.266 2.648 5.914 5.914 5.914 h 178.859 c 3.266 0 5.914 -2.648 5.914 -5.914 V 191.177 c 0 -1.568 -0.623 -3.072 -1.732 -4.182 l -50.776 -50.776 C 310.835 135.111 309.33 134.488 307.762 134.488 z" stroke-linecap="round" />
+</g>
+		<g transform="matrix(1 0 0 1 91.28 -83.86)" id="Capa_1"  >
+<path style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(102,102,102); fill-rule: nonzero; opacity: 1;"  transform=" translate(-337.04, -161.9)" d="M 316.126 188.728 h 47.751 c -0.29 -0.631 -0.657 -1.231 -1.157 -1.732 l -25.388 -25.388 l -25.388 -25.388 c -0.501 -0.501 -1.101 -0.867 -1.732 -1.157 v 47.752 C 310.211 186.08 312.86 188.728 316.126 188.728 z" stroke-linecap="round" />
+</g>
+		<g transform="matrix(1 0 0 1 23.35 -27.33)" id="Capa_1"  >
+<rect style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(102,102,102); fill-rule: nonzero; opacity: 1;"  x="-77.7265" y="-4.5825" rx="0" ry="0" width="155.453" height="9.165" />
+</g>
+		<g transform="matrix(1 0 0 1 23.35 -0.54)" id="Capa_1"  >
+<rect style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(102,102,102); fill-rule: nonzero; opacity: 1;"  x="-77.7265" y="-4.5825" rx="0" ry="0" width="155.453" height="9.165" />
+</g>
+		<g transform="matrix(1 0 0 1 3.98 26.29)" id="Capa_1"  >
+<rect style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(102,102,102); fill-rule: nonzero; opacity: 1;"  x="-58.3525" y="-4.5825" rx="0" ry="0" width="116.705" height="9.165" />
+</g>
+		<g transform="matrix(1 0 0 1 -16.57 106.69)" id="Capa_1"  >
+<rect style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(102,102,102); fill-rule: nonzero; opacity: 1;"  x="-37.801" y="-4.5825" rx="0" ry="0" width="75.602" height="9.165" />
+</g>
+		<g transform="matrix(1 0 0 1 23.35 79.88)" id="Capa_1"  >
+<polygon style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(102,102,102); fill-rule: nonzero; opacity: 1;"  points="-77.73,-4.58 -77.73,4.58 41.81,4.58 77.73,4.58 77.73,-4.58 42.91,-4.58 " />
+</g>
+		<g transform="matrix(1 0 0 1 23.35 53.08)" id="Capa_1"  >
+<polygon style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(102,102,102); fill-rule: nonzero; opacity: 1;"  points="55.72,-4.58 -77.73,-4.58 -77.73,4.58 49.5,4.58 77.73,4.58 77.73,-4.58 " />
+</g>
+</g>
+</g>
+		<g transform="matrix(1 0 0 1 -109 0)" style="filter: url(#SVGID_6409);"  >
+<filter id="SVGID_6409" y="-20%" height="140%" x="-20%" width="140%" >
+	<feGaussianBlur in="SourceAlpha" stdDeviation="0"></feGaussianBlur>
+	<feOffset dx="0" dy="0" result="oBlur" ></feOffset>
+	<feFlood flood-color="rgb(0,0,0)" flood-opacity="1"/>
+	<feComposite in2="oBlur" operator="in" />
+	<feMerge>
+		<feMergeNode></feMergeNode>
+		<feMergeNode in="SourceGraphic"></feMergeNode>
+	</feMerge>
+</filter>
+		<text xml:space="preserve" font-family="Open Sans" font-size="48" font-style="normal" font-weight="700" style="stroke: rgb(0,0,0); stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1; white-space: pre;" paint-order="stroke"  ></text>
+</g>
+</g>
+</g>
+</svg>
