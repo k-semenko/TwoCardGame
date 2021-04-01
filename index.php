@@ -1,9 +1,8 @@
 <!DOCTYPE HTML>
 <html lang="ru">
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="style.css" rel="stylesheet">
-    <script src="jquery-3.6.0.min.js"></script>
-    <script src="script.js" type="text/javascript"></script>
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <meta charset="utf-8"/>
     <title>Game Two Card</title>
@@ -82,5 +81,7 @@
         </div>
     </div>
 </main>
+<script src="jquery-3.6.0.min.js"></script>
+<script src="script.js" type="text/javascript"></script>
 </body>
 </html>
