@@ -292,7 +292,6 @@ main {
   display: block;
   box-shadow: 0 0 5px #c8c8c8;
   border: 1px solid #eeeeee;
-  transform: scale(1) scaleX(-1);
   box-sizing: border-box;
 }
 .card__body {
@@ -332,21 +331,24 @@ main {
 .notice__card {
   align-self: center;
   background: white;
-  font-size: 20px;
-  width: 50%;
-  min-height: 25%;
-  margin: 15px;
+  font-size: 2rem;
+  min-width: 30%;
+  min-height: 10%;
   padding: 15px;
   box-shadow: 0 0 5px black;
   border-radius: 20px;
   z-index: 6;
+}
+.notice__card .btn-group .btn {
+  font-size: 1.5rem;
+  margin: 10px auto;
 }
 .notice__text {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-self: center;
-  min-height: 150px;
+  padding: 10px;
 }
 .notice__text strong {
   font-size: 2rem;
@@ -432,14 +434,14 @@ main {
     height: 17rem;
   }
   .game__field.hard {
-    padding: 10px;
+    padding: 2rem;
     grid-template: 1fr/repeat(9, 1fr);
-    gap: 1rem;
+    gap: 2rem;
   }
   .game__field.hard .grid__item {
     padding: 5px;
-    width: 7rem;
-    height: 12rem;
+    width: 9rem;
+    height: 14rem;
   }
 
   .difficulty__list {
