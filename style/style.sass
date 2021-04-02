@@ -1,0 +1,411 @@
+*
+  margin: 0
+  padding: 0
+
+html,
+body
+  font-size: 14px
+  height: 100%
+
+.d-flex
+  display: flex !important
+
+.flex-row
+  flex-direction: row !important
+
+.flex-column
+  flex-direction: column !important
+
+.w-100
+  width: 100% !important
+
+.h-100
+  height: 100% !important
+
+.m-0
+  margin: 0 !important
+
+.text-center
+  text-align: center
+
+@-webkit-keyframes flip-scale-up-diag-2
+  0%
+    -webkit-transform: scale(1) rotate3d(0, 0, 0, 0deg)
+    transform: scale(1) rotate3d(0, 0, 0, 0deg)
+
+  50%
+    -webkit-transform: scale(1.1) rotate3d(-1, 1, 0, 180deg)
+    transform: scale(1.1) rotate3d(-1, 1, 0, 180deg)
+
+  100%
+    -webkit-transform: scale(1) rotate3d(-1, 1, 0, 360deg)
+    transform: scale(1) rotate3d(-1, 1, 0, 360deg)
+
+@keyframes flip-scale-up-diag-2
+  0%
+    -webkit-transform: scale(1) rotate3d(0, 0, 0, 0deg)
+    transform: scale(1) rotate3d(0, 0, 0, 0deg)
+
+  50%
+    -webkit-transform: scale(1.1) rotate3d(-1, 1, 0, 180deg)
+    transform: scale(1.1) rotate3d(-1, 1, 0, 180deg)
+
+  100%
+    -webkit-transform: scale(1) rotate3d(-1, 1, 0, 360deg)
+    transform: scale(1) rotate3d(-1, 1, 0, 360deg)
+
+
+.btn
+  display: inline-block
+  font-weight: 400
+  color: #212529
+  text-align: center
+  vertical-align: middle
+  -webkit-user-select: none
+  -moz-user-select: none
+  -ms-user-select: none
+  user-select: none
+  background-color: transparent
+  border: 1px solid transparent
+  padding: .375rem .75rem
+  font-size: 1rem
+  line-height: 1.5
+  border-radius: .25rem
+  transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out
+  min-width: 100px
+
+  &:hover
+    cursor: pointer
+
+.btn-primary
+  color: #fff
+  background-color: #007bff
+  border-color: #007bff
+
+  &:hover
+    color: #fff
+    background-color: #0069d9
+    border-color: #0062cc
+
+.btn-success
+  color: #fff
+  background-color: #28a745
+  border-color: #28a745
+
+  &:hover
+    color: #fff
+    background-color: #218838
+    border-color: #1e7e34
+
+.btn-danger
+  color: #fff
+  background-color: #dc3545
+  border-color: #dc3545
+
+  &:hover
+    color: #fff
+    background-color: #c82333
+    border-color: #bd2130
+
+main
+  box-sizing: border-box
+  display: flex
+  justify-content: center
+  width: 100%
+  min-height: 100%
+  background: url("/files/bg.jpeg") no-repeat center
+  background-size: cover
+
+.toolbar
+  display: none
+  /*margin: 15px 0*/
+  padding: 30px
+  background: rgba(225, 225, 225, 0.9)
+
+  &__buttons-group
+    display: flex
+    flex-grow: 1
+    justify-content: flex-start
+
+  &__button
+    margin: 5px
+
+.life
+  background: url("/files/life.svg") no-repeat
+  background-size: contain
+  margin: 5px
+  width: 40px
+  height: 40px
+
+.container
+  max-width: 90%
+  min-width: 50%
+  max-height: 90%
+  align-self: center
+  padding: 15px 15px 30px 15px
+  margin: 10px
+
+@-webkit-keyframes blink
+  0%
+    color: sandybrown
+  50%
+    color: white
+  100%
+    color: sandybrown
+
+@keyframes blink
+  0%
+    color: sandybrown
+  50%
+    color: white
+  100%
+    color: sandybrown
+
+.game
+  display: flex
+  justify-content: center
+  flex-direction: column
+  height: 100%
+  margin: auto
+
+  &__start
+    display: flex
+    flex-direction: column
+    margin: auto
+    padding: 25px
+    width: 80%
+    background: rgba(225, 225, 225, 0.9)
+
+  &__title
+    color: sandybrown
+    font-size: 3rem
+    text-shadow: 1px 0 1px black, 0 1px 1px black, -1px 0 1px black, 0 -1px 1px black
+    margin: 0
+
+  &__description
+    font-size: 1.5rem
+
+  &__play-btn
+    align-self: center
+    width: 20rem
+    height: 20rem
+    flex-grow: 1
+    fill: white
+    -webkit-filter: drop-shadow(0 0 5px rgba(0, 0, 0, .7))
+    filter: drop-shadow(0 0 5px rgba(0, 0, 0, .7))
+    transition: 1s
+
+    &:hover
+      transform: scale(1.2)
+      cursor: pointer
+
+    &:hover svg
+      fill: sandybrown
+      -webkit-filter: drop-shadow(0 0 1px black)
+      filter: drop-shadow(0 0 1px black)
+
+  &__field
+    display: none
+    grid-template: 1fr / repeat(6, 1fr)
+    gap: 2rem 2rem
+    // row, column
+    justify-content: space-evenly
+    align-content: space-evenly
+    justify-items: stretch
+    align-items: stretch
+    padding: 2rem
+    background: rgba(225, 225, 225, 0.9)
+
+.difficulty
+  border-radius: 25px
+  margin: auto
+  padding: 10px
+  font-size: 1rem
+  font-weight: bold
+  text-shadow: 1px 0 0.5px black, 0 1px 0.5px black, -1px 0 0.5px black, 0 -1px 0.5px black
+  align-self: center
+  text-align: center
+
+  &__list
+    list-style: none
+    display: flex
+    justify-content: center
+    flex-direction: row
+    margin: 0
+
+  &__item
+    padding: 1rem
+    margin: 5px 10px
+    background: silver
+    color: #FFF
+    border: 1px solid silver
+    border-radius: 1rem
+    box-shadow: 0 0 5px black
+    transition: transform .5s
+
+    &.selected_diff
+      background: white
+      color: sandybrown
+      cursor: default
+
+    &:not(.selected_diff)
+      border-radius: 0.5rem
+      font-size: 1.5rem
+      padding: 0.5rem
+      height: min-content
+      align-self: center
+
+      &:hover
+        cursor: pointer
+        background: #787878
+        transform: scale(1.1)
+
+.card
+  justify-self: center
+  background: sandybrown
+  padding: 10px
+  display: block
+  box-shadow: 0 0 5px rgb(200, 200, 200)
+  border: 1px solid #eeeeee
+  transform: scale(1) scaleX(-1)
+  box-sizing: border-box
+
+  &__body
+    background: sandybrown
+    background-size: contain !important
+    min-height: 100%
+    min-width: 100%
+    box-shadow: 0 0 1px black
+
+    & svg
+      filter: drop-shadow(0 0 2px black)
+
+  &.opened
+    -webkit-animation: flip-scale-up-diag-2 1s linear both
+    animation: flip-scale-up-diag-2 1s linear both
+
+  &:not(.opened):hover
+    cursor: pointer
+
+  &.blocked
+    background: rgba(0, 0, 0, 0)
+    box-shadow: none
+
+.notice
+  display: none
+  justify-content: center
+  position: fixed
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+  background: rgba(0, 0, 0, 0.2)
+  z-index: 5
+  transition: 1s
+
+  &__card
+    align-self: center
+    background: white
+    font-size: 20px
+    width: 50%
+    min-height: 25%
+    margin: 15px
+    padding: 15px
+    box-shadow: 0 0 5px black
+    border-radius: 20px
+    z-index: 6
+
+  &__text
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-self: center
+    min-height: 150px
+
+    & strong
+      font-size: 2rem
+
+=width-height($width, $height)
+  width: $width
+  height: $height
+
+@media screen and (max-width: 1366px) and (min-height: 650px)
+  .container
+    margin: 5px
+  .toolbar
+    padding: 10px
+  .game
+    &__title
+      font-size: 3rem
+
+    &__play-btn
+      +width-height(15rem, 15rem)
+
+      &:hover
+        transform: scale(1.2)
+
+  .game__field
+    &.easy
+      grid-template: 1fr / repeat(6, 1fr)
+
+      .grid__item
+        +width-height(9rem, 14rem)
+
+    &.normal
+      grid-template: 1fr / repeat(9, 1fr)
+      gap: 1rem
+      .grid__item
+        +width-height(8rem, 13rem)
+
+    &.hard
+      padding: 10px
+      grid-template: 1fr / repeat(9, 1fr)
+      gap: 1rem
+
+      .grid__item
+        padding: 5px
+        +width-height(6rem, 11rem)
+
+  .difficulty__list
+    font-size: 2rem
+
+    &.selected_diff
+      font-size: 2.5rem
+
+@media screen and (min-width: 1367px)
+  .game
+    &__title
+      font-size: 4rem
+    &__play-btn
+      +width-height(30rem, 30rem)
+
+      &:hover
+        transform: scale(1.2)
+
+  .game__field
+    &.easy
+      grid-template: 1fr / repeat(6, 1fr)
+
+      .grid__item
+        +width-height(15rem, 20rem)
+
+    &.normal
+      grid-template: 1fr / repeat(6, 1fr)
+
+      .grid__item
+        +width-height(12rem, 17rem)
+
+    &.hard
+      padding: 10px
+      grid-template: 1fr / repeat(9, 1fr)
+      gap: 1rem
+
+      .grid__item
+        padding: 5px
+        +width-height(7rem, 12rem)
+
+  .difficulty__list
+    font-size: 2.5rem
+
+    &.selected_diff
+      font-size: 3rem

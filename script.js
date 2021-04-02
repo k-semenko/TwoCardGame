@@ -1,282 +1,289 @@
-$(document).ready(function () {
+"use strict";
 
-    const notice = $('#notice');
-    const noticeText = $('#notice-text');
-    const playBtn = $('.newGameBtn'); //Кнопка запуска игры
-    const gameField = $('.game > .game_field'); // Блок с карточками
-    const toolbar = $('#toolbar');
-    const startField = $('.game > .start_field');
-
-    let life = 3;
-    let lifePic = toolbar.find('.life'); // Иконки жизней
-    let cardCount = 12; // Кол-во карт в раунде
-    let cardsWithBugs = 2; // Карты с багами
-    let firstViewCardsTime = 2000; // Время на просмотр карт перед началом раунда
-    let allCards = {}; // Все карты на игровой области
-    let getCardsBackground = []; // Обложки карт
-    let selectedCards = 0; // Переменная для отметки выбранных карт
+const notice = $('.notice');
+const noticeText = $('.notice__text');
+const gameField = $('.game__field'); // Блок с карточками
+const toolbar = $('.toolbar');
+const startField = $('.game__start');
+const diffBtn = $('.difficulty').find('.difficulty__item');
 
 
-    function getNotice(message, yesCallback, noCallback) {
-        notice.css({'display': 'flex'});
-        noticeText.html(message);
+let lifeCount = null;
+let lifePic = null;
+let cardsOnField = null;
+let diffGameParameters = $('.selected_diff').attr('data-diff');
+let allCards = null; // Все карты на игровой области
+let cardCount = null; // Кол-во карт в раунде
+let cardsWithBugs = null; // Карты с багами
+let firstViewCardsTime = null; // Время на просмотр карт перед началом раунда
+let getCardsBackground = null; // Обложки карт
+let selectedCards = 0; // Переменная для отметки выбранных карт
 
-        $('#btnYes').click(function () {
-            notice.hide();
-            yesCallback();
-        });
-        $('#btnNo').click(function () {
-            notice.hide();
-            setTimeout(function () {
-                allCards.remove();
-                location.reload();
-            }, 200)
-            // noCallback();
-        });
+function getNotice(message, yesCallback, noCallback) {
+    notice.css({'display': 'flex'});
+    noticeText.html(message);
+
+    $('#btnYes').click(function () {
+        notice.hide();
+        yesCallback();
+    });
+    $('#btnNo').click(function () {
+        notice.hide();
+        setTimeout(function () {
+            allCards.remove();
+            location.reload();
+        }, 200)
+        // noCallback();
+    });
+}
+
+
+// Перебираем все кнопки выбора сложности и отслеживаем нажатие
+diffBtn.each(function () {
+    let clickedBtn = $(this);
+
+    clickedBtn.click(function () {
+        diffBtn.removeClass('selected_diff');
+        clickedBtn.addClass('selected_diff');
+        // Запись сложности в переменную
+        diffGameParameters = clickedBtn.attr('data-diff'); // difficulty Game Parameters
+        // добавляем в game__field класс соответствующий сложности для адаптации размера карт
+        gameField.removeClass().addClass(['game__field ' + diffGameParameters]);
+        console.log(diffGameParameters);
+    });
+});
+
+// Функция Выставления параметров в зависимости от сложности
+function setGameParameters() {
+    // добавляем в game__field класс соответствующий сложности для адаптации размера кард
+    // gameField.removeClass().addClass(['game__field ' + diffGameParameters]);
+    // Определение игровых параметров в зависимости от уровня сложности
+    switch (diffGameParameters) {
+        case 'easy':
+            lifeCount = 3
+            cardCount = 12;
+            cardsWithBugs = 2;
+            firstViewCardsTime = 3000;
+            break;
+        case 'normal':
+            lifeCount = 4
+            cardCount = 18;
+            cardsWithBugs = 4;
+            firstViewCardsTime = 5000;
+            break;
+        case 'hard':
+            lifeCount = 5
+            cardCount = 27;
+            cardsWithBugs = 7;
+            firstViewCardsTime = 11000;
+
+            break;
+        default:
+            console.error('Не выбран уровень сложности игры!')
+    }
+    console.log('Сложность: ' + diffGameParameters +
+        '\r\nКол-во карт: ' + cardCount +
+        '\r\nКарт с багами: ' + cardsWithBugs +
+        '\r\nВремя просмотра: ' + firstViewCardsTime / 1000 + ' сек.');
+}
+
+function generateLifePic(lifeCount) {
+    for (let i = 0; i < lifeCount; i++) {
+        toolbar.append('<div class="life"></div>');
+    }
+}
+
+
+// Функция проверки пройгрыша
+function gameOver(isBug) {
+    if (isBug === 1) {
+        getNotice("<strong>Вы наткнулись на BugProd!</strong> <br> " +
+            "Ваш путь тестировщика окончен. =( <br> Хотите повторить?",
+            function () {
+                startGame();
+            })
+    } else {
+        lifeCount--;
+        lifePic = toolbar.find('.life');
+        lifePic.eq(0).remove();
     }
 
-    //Функция изменени размера карт в зависимости от кол-ва карт и разрешения экрана
-    function getCardsSize() {
-        let windowSize = $(document).width();
-        let size;
-
-        if (cardCount === 12) {
-            size = {'width': '140', 'height': '220'};
-        } else if (cardCount === 18) {
-            size = {'width': '120', 'height': '180', 'margin': '15px 30px'};
-        } else if (cardCount === 27) {
-            size = {'width': '80', 'height': '140', 'margin': '15px 20px'};
-        }
-
-        allCards.each(function () {
-            $(this).css(size);
-            console.log('Change card size');
-        });
-    }
-
-    // Функция выборв сложности
-    function selectDifficulty() {
-        let diffBtn = $('.difficulty').find('li');
-        diffBtn.each(function () {
-            let btn = $(this);
-            btn.click(function () {
-                diffBtn.removeClass('selected_diff');
-                btn.addClass('selected_diff');
-
-                // Запись сложности в переменную
-                let diffGP = btn.attr('data-diff'); // cardCount Game Parameters
-
-                // Определение игровых параметров в зависимости от уровня сложности
-                if (diffGP === 'Easy') {
-                    cardCount = 12;
-                    cardsWithBugs = 2;
-                    firstViewCardsTime = 2000;
-                } else if (diffGP === 'Normal') {
-                    cardCount = 18;
-                    cardsWithBugs = 4;
-                    firstViewCardsTime = 4000;
-                } else if (diffGP === 'Hard') {
-                    cardCount = 27;
-                    cardsWithBugs = 7;
-                    firstViewCardsTime = 10000;
-                } else {
-                    console.error('Не выбран уровень сложности игры!')
-                }
+    if (lifeCount === 0) {
+        getNotice("<strong>У вас закончился КОФЕ!</strong><br>" +
+            "Ваша жизнь не имеет смысла без кофе. " +
+            "<br><br>Хотите сыграть еще раз?",
+            function () {
+                startGame();
             });
-        });
     }
+}
 
-    // Функция проверки пройгрыша
-    function gameOver(minus) {
-        if (minus === 'Bug') {
-            getNotice("<strong>Вы наткнулись на BugProd!</strong> <br> " +
-                "Ваш путь тестировщика окончен. =( <br> Хотите повторить?",
-                function () {
-                    life = 3;
-                    lifePic.show();
-                    allCards.remove();
-                    startGame();
-                })
-        } else {
-            life--;
-            lifePic.eq(life).hide();
-        }
-
-        if (life === 0) {
-            getNotice("<strong>У вас закончился КОФЕ!</strong><br> Ваша жизнь не имеет смысла без кофе. " +
-                "<br><br>Хотите сыграть еще раз?",
-                function () {
-                    life = 3;
-                    lifePic.show();
-                    allCards.remove();
-                    startGame();
-                });
-        }
-    }
-
-    // Функция проверки завершения раунда
-    function checkRoundComplete() {
-        let blockedCards = $('.game_field').find('.card.blocked');
-        if (Number(blockedCards.length) === Number(cardCount - cardsWithBugs)) {
-            return getNotice('<strong>Вы вышли в релиз без багов!</strong> <br> Провести регресс повторно?')
-        }
-    }
-
-    // Функция для генерации индексов для карт, в которых будут баги
-    function getCardsBgFunction(min, max, bugsCount) {
-        let intArr = [];
-        let finalArr = [];
-        for (let i = 0; i <= max; i++) {
-            let int = Math.floor(Math.random() * (max - min + 1)) + min;
-            if (intArr.indexOf(int) === -1 || intArr.length === 0) {
-                intArr.push(int)
-            } else {
-                i--
+// Функция проверки завершения раунда
+function checkRoundComplete() {
+    let blockedCards = gameField.find('.card.blocked');
+    if (Number(blockedCards.length) === Number(cardCount - cardsWithBugs)) {
+        return getNotice('<strong>Вы вышли в релиз без багов!</strong> ' +
+            '<br> Провести регресс повторно?',
+            function () {
+                startGame();
             }
-        }
+        );
+    }
+}
 
-        // Вырезаем из массива с индексами нужное кол-во индексов для карт с багами и записываем в финальный массив
-        let bugs = intArr.splice(0, bugsCount);
-        bugs.forEach(function (item, index, array) {
+// Функция для генерации индексов для карт, в которых будут баги
+function getCardsBgFunction(min, max, bugsCount) {
+    let intArr = [];
+    let finalArr = [];
+    for (let i = 0; i <= max; i++) {
+        let int = Math.floor(Math.random() * (max - min + 1)) + min;
+        if (intArr.indexOf(int) === -1 || intArr.length === 0) {
+            intArr.push(int)
+        } else {
+            i--
+        }
+    }
+
+    // Вырезаем из массива с индексами нужное кол-во индексов для карт с багами и записываем в финальный массив
+    let bugs = intArr.splice(0, bugsCount);
+    bugs.forEach(function (item) {
+        finalArr.push({
+            index: item,
+            bg: '#EEE url("/files/cards/bug.svg") no-repeat center',
+            card: 0,
+        })
+    });
+    // Вырезаем из массива с индексами нужное кол-во индексов для карт с картинками и записываем в финальный массив
+    let remainingCards = intArr.length / 2;
+    for (let x = 0; x <= remainingCards; x++) {
+        let cards = intArr.splice(0, 2);
+        cards.forEach(function (item, index) {
             finalArr.push({
                 index: item,
-                bg: '#EEE url("/files/cards/bug.svg") no-repeat center',
-                card: 0,
-            })
-        });
-        // Вырезаем из массива с индексами нужное кол-во индексов для карт с картинками и записываем в финальный массив
-        let remainingCards = intArr.length / 2;
-        for (let x = 0; x <= remainingCards; x++) {
-            let cards = intArr.splice(0, 2);
-            cards.forEach(function (item, index) {
-                finalArr.push({
-                    index: item,
-                    bg: '#EEE url("/files/cards/card' + Number(x + 1) + '.svg") no-repeat center',
-                    card: Number(x + 1)
-                });
-            });
-        }
-
-        return finalArr;
-    }
-
-    function compareCards() {
-        let cards = $(document).find('.card.opened:not(.blocked) > .card-body');
-        if (cards.eq(0).attr('data-card') === cards.eq(1).attr('data-card')) {
-            // cards.parent().remove();
-            cards.parent().css({'background': 'rgba(0, 0, 0, 0)', 'box-shadow': 'none'}).addClass('blocked');
-            allCards.css({'pointer-events': 'auto'});
-            return true;
-        }
-        return false;
-    }
-
-
-    // Скрытие кнопки запуска игры после нажатия и отображение игровой области
-    // Запуск функции по формированию поля игры и начало раунда
-    selectDifficulty();
-    playBtn.click(function () {
-        startGame();
-    });
-
-    function startGame() {
-        // Запуск функции по изменению размера карт при изменении размера экрана
-        $(window).resize(() => {
-            getCardsSize()
-        });
-
-        console.log('Game start!');
-        startField.hide();
-        gameField.css('display', 'flex');
-        toolbar.css('display', 'flex');
-        for (let i = 0; i < cardCount; i++) {
-            gameField.append('<div class="card shake" data-card=""><div class="card-body"></div></div>');
-        }
-        allCards = $(document).find('.card'); // Находим все карты после создания игровой области
-        cardCount = allCards.length; // Считаем кол-во карт
-        getCardsSize(); // Получаем размеры карт
-
-        getCardsBackground = getCardsBgFunction(0, cardCount - 1, cardsWithBugs)
-        // Показываем карты в первый раз
-        setTimeout(() => {
-            openAllCards();
-            setTimeout(closeOpenedCards, firstViewCardsTime)
-        }, 500)
-
-        cardClick();
-    }
-
-    // Отработка действий после нажатия на карту
-    function cardClick() {
-        allCards.each(function (index) {
-            let el = $(this);
-            el.click(function () {
-                if (el.hasClass('opened')) {
-                    console.warn('Карта уже открыта или вы завершили раунд');
-                } else {
-                    el.addClass('opened');
-                    selectedCards++
-                }
-
-                let cardData = getCardsBackground.find(item => item.index === index);
-                let cardBg = cardData.bg;
-                let cardNumber = cardData.card;
-
-                el.find('.card-body').css({
-                    'background': cardBg,
-                    'pointer-events': 'none',
-                }).attr('data-card', cardNumber);
-
-                if (cardNumber === 0) {
-                    selectedCards = 0;
-                    lifePic.hide()
-                    console.error("Да это же баг! Вы проиграли =(")
-                    gameOver('Bug');
-                } else if (selectedCards === 2) {
-                    allCards.css({'pointer-events': 'none'})
-                    if (compareCards()) {
-                        selectedCards = 0;
-                        checkRoundComplete();
-                        console.log('%cКарты одинаковые! Ура!', `color:green;`);
-                    } else {
-                        selectedCards = 0;
-                        gameOver(1)
-                        closeOpenedCards();
-                        console.warn('Карты разные... =(')
-                    }
-                } else if (selectedCards === 1) {
-                    console.log('Выбрана одна карта!')
-                } else {
-                    console.error('Неизвестная отработка при сравнении карт. SelectCard === 0')
-                }
+                bg: '#EEE url("/files/cards/card' + Number(x + 1) + '.svg") no-repeat center',
+                card: Number(x + 1)
             });
         });
     }
 
-    // Функция открытия всех карт
-    function openAllCards() {
+    return finalArr;
+}
+
+function compareCards() {
+    let cards = $(document).find('.card.opened:not(.blocked)');
+    if (cards.eq(0).attr('data-card') === cards.eq(1).attr('data-card')) {
+        cards.addClass('blocked');
         allCards.css({'pointer-events': 'auto'});
-        allCards.each(function (index) {
-            let el = $(this);
-            el.addClass('opened');
+        return true;
+    }
+    return false;
+}
 
-            let cardBg = getCardsBackground.find(item => item.index === index).bg;
-            el.find('.card-body').css({
+
+// Запуск функции по формированию поля игры и начало раунда
+function startGame() {
+    // Поиск всех карт и иконок жизней на поле
+    cardsOnField = $('.card');
+    lifePic = toolbar.find('.life'); // Иконки жизней
+    // Очистка поля
+    lifePic.remove();
+    cardsOnField.remove();
+
+    // Определяем параметры игры
+    setGameParameters();
+    // Генерация иконок жизней
+    generateLifePic(lifeCount);
+    console.log('Game start!');
+    startField.hide();
+    gameField.css('display', 'grid');
+    toolbar.css('display', 'flex');
+    for (let i = 0; i < cardCount; i++) {
+        gameField.append('<div class="card grid__item" data-card=""><div class="card__body"></div></div>');
+    }
+    allCards = $(document).find('.card.grid__item'); // Находим все карты после создания игровой области
+    getCardsBackground = getCardsBgFunction(0, cardCount - 1, cardsWithBugs)
+
+    // Показываем карты в первый раз
+    setTimeout(() => {
+        openAllCards();
+        setTimeout(closeOpenedCards, firstViewCardsTime)
+    }, 500)
+
+    cardClick();
+}
+
+// Отработка действий после нажатия на карту
+function cardClick() {
+    allCards.each(function (index) {
+        let el = $(this);
+        el.click(function () {
+            if (el.hasClass('opened')) {
+                console.warn('Карта уже открыта или вы завершили раунд');
+            } else {
+                el.addClass('opened');
+                selectedCards++
+            }
+
+            let cardData = getCardsBackground.find(item => item.index === index);
+            let cardBg = cardData.bg;
+            let cardNumber = cardData.card;
+            el.find('.card__body').css({
+                'background': cardBg,
+                'pointer-events': 'none',
+            }).parent().attr('data-card', cardNumber);
+
+
+            if (cardNumber === 0) {
+                selectedCards = 0;
+                lifePic.hide()
+                console.error("Да это же баг! Вы проиграли =(")
+                gameOver(1);
+            } else if (selectedCards === 2) {
+                allCards.css({'pointer-events': 'none'})
+                if (compareCards()) {
+                    selectedCards = 0;
+                    checkRoundComplete();
+                    console.log('%cКарты одинаковые! Ура!', `color:green;`);
+                } else {
+                    selectedCards = 0;
+                    gameOver(0)
+                    closeOpenedCards();
+                    console.warn('Карты разные... =(')
+                }
+            } else if (selectedCards === 1) {
+                console.log('Выбрана одна карта!')
+            } else {
+                console.error('Неизвестная отработка при сравнении карт. SelectCard === 0')
+            }
+        });
+    });
+}
+
+// Функция открытия всех карт
+function openAllCards() {
+    allCards.css({'pointer-events': 'auto'});
+    allCards.each(function (index) {
+        let el = $(this);
+        el.addClass('opened');
+
+        let cardBg = getCardsBackground.find(item => item.index === index).bg;
+        setTimeout(function () {
+            el.find('.card__body').css({
                 'background': cardBg,
             });
+        }, 750)
+
+    });
+}
+
+// Функция закрытия всех открытых карт
+function closeOpenedCards() {
+    let close = $(document).find('.card.opened:not(.blocked)');
+    setTimeout(function () {
+        close.removeClass('opened').find('.card__body').css({
+            'background': 'sandybrown',
         });
-    }
 
-    // Функция закрытия всех открытых карт
-    function closeOpenedCards() {
-        let close = $(document).find('.card.opened:not(.blocked)');
-        setTimeout(function () {
-            close.removeClass('opened').find('.card-body').css({
-                'background': 'sandybrown',
-            });
-
-            allCards.css({'pointer-events': 'auto'});
-        }, 1500);
-    }
-
-})
+        allCards.css({'pointer-events': 'auto'});
+    }, 1500);
+}

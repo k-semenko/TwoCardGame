@@ -2,16 +2,16 @@
 <html lang="ru">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="style.css" rel="stylesheet">
+    <link href="style/style.css" rel="stylesheet">
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <meta charset="utf-8"/>
     <title>Game Two Card</title>
 </head>
 <body>
 <main>
-    <div id="notice">
-        <div id="notice-card">
-            <p id="notice-text" class="text-center">Hello world</p>
+    <div class="notice">
+        <div class="notice__card">
+            <p class="notice__text text-center">Hello world</p>
             <hr>
             <div class="btn-group text-center">
                 <button class="btn btn-success" id="btnYes">Yes</button>
@@ -21,9 +21,9 @@
     </div>
 
     <div class="container">
-        <div id="toolbar">
-            <div class="toolbar-buttons">
-                <button class="btn btn-success" onclick="location.reload()">
+        <div class="toolbar">
+            <div class="toolbar__buttons-group">
+                <button class="toolbar__button btn btn-success" onclick="location.reload()">
                     <strong>
                         <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor"
                              class="bi bi-house" viewBox="0 0 16 16">
@@ -35,7 +35,7 @@
                         Home
                     </strong>
                 </button>
-                <button class="btn btn-primary newGameBtn" onclick="return $('.card').remove(); startGame();">
+                <button class="toolbar__button btn btn-primary" onclick="startGame()">
                     <strong>
                         <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor"
                              class="bi bi-arrow-counterclockwise" viewBox="0 0 16 16">
@@ -48,16 +48,13 @@
                 </button>
             </div>
 
-            <div class="life"></div>
-            <div class="life"></div>
-            <div class="life"></div>
         </div>
 
         <div class="game text-center">
-            <div class="start_field">
-                <h1 class="text-center m-0">This is my first game in JS</h1>
-                <h1 class="title text-center">&laquo;Adventures of a Tester&raquo;</h1>
-                <div id="play-btn" class="newGameBtn">
+            <div class="game__start">
+                <h1 class="game__description text-center m-0">This is my first game in JS</h1>
+                <h1 class="game__title text-center">&laquo;Adventures of a Tester&raquo;</h1>
+                <div class="game__play-btn" onclick="startGame()">
                     <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"
                          class="bi bi-caret-right" viewBox="0 0 16 16">
                         <path d="M6 12.796V3.204L11.481 8 6 12.796zm.659.753l5.48-4.796a1 1 0 0 0 0-1.506L6.66 2.451C6.011 1.885 5 2.345 5 3.204v9.592a1 1 0 0 0 1.659.753z"/>
@@ -65,19 +62,16 @@
                 </div>
 
                 <div class="difficulty">
-                    <ul>
-                        <li class="selected_diff" title="Easy" data-diff="Easy">Easy</li>
-                        <li title="Normal" data-diff="Normal">Normal</li>
-                        <li title="Hard" data-diff="Hard">Hard</li>
+                    <ul class="difficulty__list">
+                        <li class="difficulty__item selected_diff" title="Easy" data-diff="easy">Easy</li>
+                        <li class="difficulty__item" title="Normal" data-diff="normal">Normal</li>
+                        <li class="difficulty__item" title="Hard" data-diff="hard">Hard</li>
                     </ul>
                 </div>
             </div>
 
-            <div class="game_field"></div>
+            <div class="game__field easy"></div>
 
-            <div class="win_field">
-                <h1 id="winTitle">Вы выйграли!</h1>
-            </div>
         </div>
     </div>
 </main>
