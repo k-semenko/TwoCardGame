@@ -124,11 +124,15 @@ main
 
   &__buttons-group
     display: flex
-    flex-grow: 1
     justify-content: flex-start
-
   &__button
     margin: 5px
+
+  &__player-name
+    flex-grow: 1
+    font-size: 1rem
+    text-align: center
+    align-self: center
 
 .life
   background: url("/files/life.svg") no-repeat
@@ -332,7 +336,82 @@ main
   width: $width
   height: $height
 
-@media screen and (max-width: 1366px) and (min-height: 650px)
+@media screen and (min-width: 300px) and (max-width: 999px)
+  .container
+    margin: 5px
+    width: 100%
+    height: 100%
+
+  .notice
+    &__card
+      margin: 5px
+      box-sizing: border-box
+    &__text, strong
+      font-size: 1.5rem
+
+  .toolbar
+    padding: 5px
+    align-items: center
+
+    &__button
+      min-width: 10px
+
+      & strong
+        display: none
+
+    & .life
+      +width-height(1.5rem, 1.5rem)
+
+
+  .difficulty
+    &__list .selected_diff
+      font-size: 1.5rem
+
+    &__item:not(.selected_diff)
+      font-size: 1rem
+
+  .game
+    &__title
+      font-size: 1.5rem
+
+    &__play-btn
+      +width-height(10rem, 10rem)
+
+      &:hover
+        transform: scale(1.2)
+
+    &__description
+      font-size: 1rem
+  .game__field
+    padding: 5px
+
+    &.easy
+      grid-template: 1fr / repeat(3, 1fr)
+      gap: 1rem
+
+      .grid__item
+        +width-height(6rem, 8rem)
+        padding: 5px
+
+    &.normal
+      grid-template: 1fr / repeat(4, 1fr)
+      gap: .5rem
+
+      .grid__item
+        +width-height(5rem, 7rem)
+        padding: 3px
+
+    &.hard
+      padding: 5px
+      grid-template: 1fr / repeat(4, 1fr)
+      gap: .5rem
+
+      .grid__item
+        +width-height(5rem, 6rem)
+        padding: 3px
+
+
+@media screen and (min-width: 1000px) and (min-height: 650px)
   .container
     margin: 5px
   .toolbar
