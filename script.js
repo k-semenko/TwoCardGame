@@ -33,17 +33,16 @@ $('.game__play-btn').click(() => {
 })
 
 function setPlayerName() {
-    playerName = prompt('Введите свое имя!');
     let toolbarNameField = $('.toolbar__player-name');
-    if (playerName.length !== 0) {
+    playerName = prompt('Введите свое имя!');
+    if (playerName !== null && playerName.length !== 0) {
         toolbarNameField.text('Здравствуй, ' + playerName);
     } else {
-        toolbarNameField.text('Неизвестный игрок.')
+        setPlayerName();
     }
-
 }
 
-function getNotice(message, yesCallback, noCallback) {
+function getNotice(message, yesCallback) {
     notice.css({'display': 'flex'});
     noticeText.html(message);
 
@@ -182,7 +181,7 @@ function getCardsBgFunction(min, max, bugsCount) {
     let remainingCards = intArr.length / 2;
     for (let x = 0; x <= remainingCards; x++) {
         let cards = intArr.splice(0, 2);
-        cards.forEach(function (item, index) {
+        cards.forEach(function (item) {
             finalArr.push({
                 index: item,
                 bg: '#EEE url("/files/cards/card' + Number(x + 1) + '.svg") no-repeat center',
