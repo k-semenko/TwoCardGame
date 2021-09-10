@@ -34,10 +34,10 @@ $('.game__play-btn').click(() => {
 
 function setPlayerName() {
     let toolbarNameField = $('.toolbar__player-name');
-    playerName = prompt('Введите свое имя!');
     if (playerName !== null && playerName.length !== 0) {
         toolbarNameField.text('Здравствуй, ' + playerName);
     } else {
+        playerName = prompt('Введите свое имя!');
         setPlayerName();
     }
 }
