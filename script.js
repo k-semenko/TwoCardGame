@@ -38,7 +38,11 @@ function setPlayerName() {
         toolbarNameField.text('Здравствуй, ' + playerName);
     } else {
         playerName = prompt('Введите свое имя!');
-        setPlayerName();
+        if (playerName){
+            setPlayerName();
+        } else {
+            this.location.reload()
+        }
     }
 }
 
