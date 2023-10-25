@@ -7,6 +7,7 @@ html,
 body
   font-size: 14px
   height: 100%
+  min-width: 550px
 
 .d-flex
   display: flex !important
@@ -126,6 +127,7 @@ main
   &__buttons-group
     display: flex
     justify-content: flex-start
+
   &__button
     margin: 5px
 
@@ -137,11 +139,16 @@ main
     align-self: center
 
 .life
+  display: flex
+  justify-content: end
+  align-items: center
   background: url("/files/life.svg") no-repeat
   background-size: contain
   margin: 5px
-  width: 40px
-  height: 40px
+  width: 50px
+  padding-left: 15px
+  font-size: large
+  font-weight: bolder
 
 .container
   max-width: 90%
@@ -274,6 +281,7 @@ main
   box-shadow: 0 0 5px rgb(200, 200, 200)
   border: 1px solid #eeeeee
   box-sizing: border-box
+  border-radius: 1rem
 
   &__body
     background: sandybrown
@@ -281,6 +289,7 @@ main
     min-height: 100%
     min-width: 100%
     box-shadow: 0 0 1px black
+    border-radius: 0.5rem
 
     & svg
       filter: drop-shadow(0 0 2px black)
@@ -348,12 +357,16 @@ main
     &__card
       margin: 5px
       box-sizing: border-box
+
     &__text, strong
       font-size: 1.5rem
 
   .toolbar
     padding: 5px
     align-items: center
+
+    &__player-name
+      font-size: 1rem
 
     &__button
       min-width: 10px
@@ -362,7 +375,7 @@ main
         display: none
 
     & .life
-      +width-height(1.5rem, 1.5rem)
+      width: 30px
 
 
   .difficulty
@@ -385,7 +398,7 @@ main
     &__description
       font-size: 1rem
   .game__field
-    padding: 5px
+    padding: 15px
 
     &.easy
       grid-template: 1fr / repeat(3, 1fr)

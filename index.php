@@ -45,11 +45,11 @@
             </div>
             <strong class="toolbar__player-name">Hello</strong>
             <!-- Тут генерятся жизни игрока при помощи JS-->
+            <div class="life"></div>
         </div>
 
         <div class="game text-center">
             <div class="game__start">
-                <h1 class="game__description text-center m-0">This is my first game in JS</h1>
                 <h1 class="game__title text-center">&laquo;Adventures of a Tester&raquo;</h1>
                 <div class="game__play-btn">
                     <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"

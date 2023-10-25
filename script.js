@@ -1,44 +1,73 @@
 "use strict";
 
+/**
+ * Запись данных в локальное хранилище
+ * @param {string} item
+ * @param {string} value
+ */
+function setLocalStorage(item, value) {
+    localStorage.setItem(item, value);
+}
+
+/**
+ * Получение данных из локального хранилища
+ * @param {string} item
+ * @returns {string}
+ */
+function getFromLocalStorage(item) {
+    return localStorage.getItem(item)
+}
+
 const notice = $('.notice');
 const noticeText = $('.notice__text');
 const gameField = $('.game__field'); // Блок с карточками
 const toolbar = $('.toolbar');
 const startField = $('.game__start');
 const diffBtn = $('.difficulty').find('.difficulty__item');
+const homeBtn = $('.toolbar__button__home');
+const newGameBtn = $('toolbar__button__new');
+const startGameBtn = $('.game__play-btn');
 
-let playerName = null;
-let lifeCount = null;
-let lifePic = null;
-let cardsOnField = null;
 let diffGameParameters = $('.selected_diff').attr('data-diff');
+let cardsOnField = null;
 let allCards = null; // Все карты на игровой области
-let cardCount = null; // Кол-во карт в раунде
-let cardsWithBugs = null; // Карты с багами
-let firstViewCardsTime = null; // Время на просмотр карт перед началом раунда
-let getCardsBackground = null; // Обложки карт
-let selectedCards = 0; // Переменная для отметки выбранных карт
+let cardsBackground = null; // Обложки карт
+let selectedCards = null; // Переменная для отметки выбранных карт
 
-// Кнопка возврата на главный экран в баре управления игрой
-$('.toolbar__button__home').click(() => {
+const game = {
+    playerName: null, lifeCount: null, cardCount: null, // Кол-во карт в раунде
+    cardsWithBugs: null, // Карты с багами
+    firstViewCardsTime: null // Время на просмотр карт перед началом раунда
+}
+
+// Возврат на главный экран из бара управления игрой
+homeBtn.click(() => {
     location.reload();
 });
-// Кнопка начала новой игры в баре управления игрой
-$('toolbar__button__new').click(() => {
+
+// Начало новой игры из бара управления игрой
+newGameBtn.click(() => {
     startGame();
 })
 
-$('.game__play-btn').click(() => {
+// Начало игры
+startGameBtn.click(() => {
     startGame();
 })
 
+/**
+ * Установка имени игрока
+ */
 function setPlayerName() {
     let toolbarNameField = $('.toolbar__player-name');
-    if (playerName !== null && playerName.length !== 0) {
-        toolbarNameField.text('Здравствуй, ' + playerName);
+    game.playerName = getFromLocalStorage('playerName');
+
+    if (game.playerName !== null && game.playerName.length !== 0) {
+        toolbarNameField.text('Здравствуй, ' + game.playerName);
     } else {
-        playerName = prompt('Введите свое имя!');
-        if (playerName){
+        game.playerName = prompt('Введите свое имя!');
+        if (game.playerName) {
+            setLocalStorage('playerName', game.playerName)
             setPlayerName();
         } else {
             this.location.reload()
@@ -46,6 +75,11 @@ function setPlayerName() {
     }
 }
 
+/**
+ * Работа с уведомлением
+ * @param message Выводимое сообщение
+ * @param yesCallback функция, выполняемая при ответе "Да"
+ */
 function getNotice(message, yesCallback) {
     notice.css({'display': 'flex'});
     noticeText.html(message);
@@ -54,6 +88,7 @@ function getNotice(message, yesCallback) {
         notice.hide();
         yesCallback();
     });
+
     $('#btnNo').click(function () {
         notice.hide();
         setTimeout(function () {
@@ -76,11 +111,12 @@ diffBtn.each(function () {
         diffGameParameters = clickedBtn.attr('data-diff'); // difficulty Game Parameters
         // добавляем в game__field класс соответствующий сложности для адаптации размера карт
         gameField.removeClass().addClass(['game__field ' + diffGameParameters]);
-        console.log(diffGameParameters);
     });
 });
 
-// Функция Выставления параметров в зависимости от сложности
+/**
+ * Определение параметров игры в зависимости от сложности
+ */
 function setGameParameters() {
     /*
     добавляем в game__field класс соответствующий сложности для адаптации размера кард
@@ -90,78 +126,67 @@ function setGameParameters() {
 
     switch (diffGameParameters) {
         case 'easy':
-            lifeCount = 3
-            cardCount = 12;
-            cardsWithBugs = 2;
-            firstViewCardsTime = 3000;
+            game.lifeCount = 3
+            game.cardCount = 12;
+            game.cardsWithBugs = 2;
+            game.firstViewCardsTime = 3000;
             break;
         case 'normal':
-            lifeCount = 4
-            cardCount = 18;
-            cardsWithBugs = 4;
-            firstViewCardsTime = 5000;
+            game.lifeCount = 4
+            game.cardCount = 18;
+            game.cardsWithBugs = 4;
+            game.firstViewCardsTime = 5000;
             break;
         case 'hard':
-            lifeCount = 5
-            cardCount = 27;
-            cardsWithBugs = 7;
-            firstViewCardsTime = 11000;
-
+            game.lifeCount = 5
+            game.cardCount = 27;
+            game.cardsWithBugs = 7;
+            game.firstViewCardsTime = 11000;
             break;
         default:
             console.error('Не выбран уровень сложности игры!')
     }
-    // console.log('Сложность: ' + diffGameParameters +
-    //     '\r\nКол-во карт: ' + cardCount +
-    //     '\r\nКарт с багами: ' + cardsWithBugs +
-    //     '\r\nВремя просмотра: ' + firstViewCardsTime / 1000 + ' сек.');
-}
 
-function generateLifePic(lifeCount) {
-    for (let i = 0; i < lifeCount; i++) {
-        toolbar.append('<div class="life"></div>');
-    }
+    setLife(game.lifeCount)
 }
-
 
 // Функция проверки пройгрыша
 function gameOver(isBug) {
     if (isBug === 1) {
-        getNotice("<strong>Вы наткнулись на BugProd!</strong> <br> " +
-            "Ваш путь тестировщика окончен. =( <br> Хотите повторить?",
-            function () {
-                startGame();
-            })
+        getNotice("<strong>Вы наткнулись на BugProd!</strong> <br> " + "Ваш путь тестировщика окончен. =( <br> Хотите повторить?", function () {
+            startGame();
+        })
     } else {
-        lifeCount--;
-        lifePic = toolbar.find('.life');
-        lifePic.eq(0).remove();
+        game.lifeCount--
+        setLife(game.lifeCount)
     }
 
-    if (lifeCount === 0) {
-        getNotice("<strong>У вас закончился КОФЕ!</strong><br>" +
-            "Ваша жизнь не имеет смысла без кофе. " +
-            "<br><br>Хотите сыграть еще раз?",
-            function () {
-                startGame();
-            });
+    if (game.lifeCount === 0) {
+        getNotice("<strong>У вас закончился КОФЕ!</strong><br>" + "Ваша жизнь не имеет смысла без кофе. " + "<br><br>Хотите сыграть еще раз?", function () {
+            startGame();
+        });
     }
 }
 
-// Функция проверки завершения раунда
+/**
+ * Проверки завершения раунда
+ */
 function checkRoundComplete() {
     let blockedCards = gameField.find('.card.blocked');
-    if (Number(blockedCards.length) === Number(cardCount - cardsWithBugs)) {
-        return getNotice('<strong>Вы вышли в релиз без багов!</strong> ' +
-            '<br> Провести регресс повторно?',
-            function () {
-                startGame();
-            }
-        );
+    if (Number(blockedCards.length) === Number(game.cardCount - game.cardsWithBugs)) {
+        return getNotice('<strong>Вы вышли в релиз без багов!</strong> ' + '<br> Провести регресс повторно?', function () {
+            startGame();
+        });
     }
 }
 
-// Функция для генерации индексов для карт, в которых будут баги
+/**
+ * Генерации индексов для карт, в которых будут баги
+ * @param min минимальный индекс
+ * @param max мвксимальный индекс
+ * @param bugsCount кол-во багов в игре
+ * @returns {*[]}
+ */
 function getCardsBgFunction(min, max, bugsCount) {
     let intArr = [];
     let finalArr = [];
@@ -176,9 +201,7 @@ function getCardsBgFunction(min, max, bugsCount) {
     let bugs = intArr.splice(0, bugsCount);
     bugs.forEach(function (item) {
         finalArr.push({
-            index: item,
-            bg: '#EEE url("/files/cards/bug.svg") no-repeat center',
-            card: 0,
+            index: item, bg: '#EEE url("/files/cards/bug.svg") no-repeat center', card: 0,
         })
     });
     // Вырезаем из массива с индексами нужное кол-во индексов для карт с картинками и записываем в финальный массив
@@ -201,49 +224,49 @@ function compareCards() {
     let cards = $(document).find('.card.opened:not(.blocked)');
     if (cards.eq(0).attr('data-card') === cards.eq(1).attr('data-card')) {
         cards.addClass('blocked');
-        allCards.css({'pointer-events': 'auto'});
+        game.allCards.css({'pointer-events': 'auto'});
         return true;
     }
     return false;
 }
 
-
-// Запуск функции по формированию поля игры и начало раунда
-function startGame() {
-    // Установление имени игрока
-    setPlayerName();
-    // Поиск всех карт и иконок жизней на поле
-    cardsOnField = $('.card');
-    lifePic = toolbar.find('.life'); // Иконки жизней
+/**
+ * Очистка поля
+ */
+function clearField() {
     // Очистка поля
-    lifePic.remove();
+    cardsOnField = $('.card');
     cardsOnField.remove();
+}
 
-    // Определяем параметры игры
-    setGameParameters();
-    // Генерация иконок жизней
-    generateLifePic(lifeCount);
-    console.log('Game start!');
+/**
+ * Установка жизней
+ * @param lifeCount кол-во жизней
+ */
+function setLife(lifeCount) {
+    setLocalStorage('life', lifeCount);
+    toolbar.find('.life').text('x' + lifeCount);
+}
+
+/**
+ * Предусловия перед запуском игры
+ */
+function runGamePrecondition() {
     startField.hide();
     gameField.css('display', 'grid');
     toolbar.css('display', 'flex');
-    for (let i = 0; i < cardCount; i++) {
+    for (let i = 0; i < game.cardCount; i++) {
         gameField.append('<div class="card grid__item" data-card=""><div class="card__body"></div></div>');
     }
-    allCards = $(document).find('.card.grid__item').css({'pointer-events': 'none'}); // Находим все карты после создания игровой области
-    getCardsBackground = getCardsBgFunction(0, cardCount - 1, cardsWithBugs)
-
-    // Показываем карты в первый раз
-    setTimeout(() => {
-        openAllCards();
-        setTimeout(closeOpenedCards, firstViewCardsTime)
-    }, 500)
-    cardClick();
+    game.allCards = $(document).find('.card.grid__item').css({'pointer-events': 'none'}); // Находим все карты после создания игровой области
+    cardsBackground = getCardsBgFunction(0, game.cardCount - 1, game.cardsWithBugs)
 }
 
-// Отработка действий после нажатия на карту
-function cardClick() {
-    allCards.each(function (index) {
+/**
+ * Действия после нажатия на карту
+ */
+function cardClickHandler() {
+    game.allCards.each(function (index) {
         let el = $(this);
         el.click(function () {
             if (el.hasClass('opened')) {
@@ -253,22 +276,21 @@ function cardClick() {
                 selectedCards++
             }
 
-            let cardData = getCardsBackground.find(item => item.index === index);
+            let cardData = cardsBackground.find(item => item.index === index);
             let cardBg = cardData.bg;
             let cardNumber = cardData.card;
+
             el.find('.card__body').css({
-                'background': cardBg,
-                'pointer-events': 'none',
+                'background': cardBg, 'pointer-events': 'none',
             }).parent().attr('data-card', cardNumber);
 
 
             if (cardNumber === 0) {
                 selectedCards = 0;
-                lifePic.hide()
                 console.error("Да это же баг! Вы проиграли =(")
                 gameOver(1);
             } else if (selectedCards === 2) {
-                allCards.css({'pointer-events': 'none'})
+                game.allCards.css({'pointer-events': 'none'})
                 if (compareCards()) {
                     selectedCards = 0;
                     checkRoundComplete();
@@ -288,13 +310,15 @@ function cardClick() {
     });
 }
 
-// Функция открытия всех карт
+/**
+ * Открытие всех карт
+ */
 function openAllCards() {
-    allCards.each(function (index) {
+    game.allCards.each(function (index) {
         let el = $(this);
         el.addClass('opened');
 
-        let cardBg = getCardsBackground.find(item => item.index === index).bg;
+        let cardBg = cardsBackground.find(item => item.index === index).bg;
         setTimeout(function () {
             el.find('.card__body').css({
                 'background': cardBg,
@@ -304,13 +328,35 @@ function openAllCards() {
     });
 }
 
-// Функция закрытия всех открытых карт
+/**
+ * Закрытие всех открытых карт
+ */
 function closeOpenedCards() {
     let close = $(document).find('.card.opened:not(.blocked)');
     setTimeout(function () {
         close.removeClass('opened').find('.card__body').css({
             'background': 'sandybrown',
         });
-        allCards.css({'pointer-events': 'auto'})
+        close.attr('data-card', '');
+        game.allCards.css({'pointer-events': 'auto'})
     }, 1500);
+}
+
+/**
+ * Начало раунда
+ */
+function startGame() {
+    clearField();
+    setPlayerName();
+    setGameParameters();
+    runGamePrecondition();
+
+    console.log('Game start!');
+    // Показываем карты в первый раз
+    setTimeout(() => {
+        openAllCards();
+        setTimeout(closeOpenedCards, game.firstViewCardsTime)
+    }, 500)
+
+    cardClickHandler();
 }

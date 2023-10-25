@@ -7,6 +7,7 @@ html,
 body {
   font-size: 14px;
   height: 100%;
+  min-width: 550px;
 }
 
 .d-flex {
@@ -153,11 +154,16 @@ main {
 }
 
 .life {
+  display: flex;
+  justify-content: end;
+  align-items: center;
   background: url("/files/life.svg") no-repeat;
   background-size: contain;
   margin: 5px;
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  padding-left: 15px;
+  font-size: large;
+  font-weight: bolder;
 }
 
 .container {
@@ -296,9 +302,10 @@ main {
   background: sandybrown;
   padding: 10px;
   display: block;
-  box-shadow: 0 0 5px #c8c8c8;
+  box-shadow: 0 0 5px rgb(200, 200, 200);
   border: 1px solid #eeeeee;
   box-sizing: border-box;
+  border-radius: 1rem;
 }
 .card__body {
   background: sandybrown;
@@ -306,6 +313,7 @@ main {
   min-height: 100%;
   min-width: 100%;
   box-shadow: 0 0 1px black;
+  border-radius: 0.5rem;
 }
 .card__body svg {
   filter: drop-shadow(0 0 2px black);
@@ -366,7 +374,6 @@ main {
     width: 100%;
     height: 100%;
   }
-
   .notice__card {
     margin: 5px;
     box-sizing: border-box;
@@ -374,10 +381,12 @@ main {
   .notice__text, .notice strong {
     font-size: 1.5rem;
   }
-
   .toolbar {
     padding: 5px;
     align-items: center;
+  }
+  .toolbar__player-name {
+    font-size: 1rem;
   }
   .toolbar__button {
     min-width: 10px;
@@ -386,17 +395,14 @@ main {
     display: none;
   }
   .toolbar .life {
-    width: 1.5rem;
-    height: 1.5rem;
+    width: 30px;
   }
-
   .difficulty__list .selected_diff {
     font-size: 1.5rem;
   }
   .difficulty__item:not(.selected_diff) {
     font-size: 1rem;
   }
-
   .game__title {
     font-size: 1.5rem;
   }
@@ -410,9 +416,8 @@ main {
   .game__description {
     font-size: 1rem;
   }
-
   .game__field {
-    padding: 5px;
+    padding: 15px;
   }
   .game__field.easy {
     grid-template: 1fr/repeat(3, 1fr);
@@ -447,11 +452,9 @@ main {
   .container {
     margin: 5px;
   }
-
   .toolbar {
     padding: 10px;
   }
-
   .game__title {
     font-size: 3rem;
   }
@@ -462,7 +465,6 @@ main {
   .game__play-btn:hover {
     transform: scale(1.2);
   }
-
   .game__field.easy {
     grid-template: 1fr/repeat(6, 1fr);
   }
@@ -488,7 +490,6 @@ main {
     width: 6rem;
     height: 11rem;
   }
-
   .difficulty__list {
     font-size: 2rem;
   }
@@ -507,7 +508,6 @@ main {
   .game__play-btn:hover {
     transform: scale(1.2);
   }
-
   .game__field.easy {
     grid-template: 1fr/repeat(6, 1fr);
   }
@@ -532,7 +532,6 @@ main {
     width: 9rem;
     height: 14rem;
   }
-
   .difficulty__list {
     font-size: 2.5rem;
   }
