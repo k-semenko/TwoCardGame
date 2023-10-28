@@ -92,7 +92,7 @@ function getNotice(message, yesCallback) {
     $('#btnNo').click(function () {
         notice.hide();
         setTimeout(function () {
-            allCards.remove();
+            cardsOnField.remove();
             location.reload();
         }, 200)
         // noCallback();
