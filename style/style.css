@@ -32,11 +32,11 @@ html, body {
 .btn-success:hover { background: #56d364; }
 .btn-danger { color: #fff; background: #f85149; }
 .btn-danger:hover { background: #ff6e67; }
-.btn-group { display: flex; gap: 12px; justify-content: center; margin-top: 16px; }
+.btn-group { display: flex; background: url("/files/life.svg") no-repeat left center; background-size: 28px; padding-left: 32px; gap: 12px; justify-content: center; margin-top: 16px; }
 
 /* Main layout */
 main {
-    display: flex;
+    display: flex; background: url("/files/life.svg") no-repeat left center; background-size: 28px; padding-left: 32px;
     justify-content: center;
     align-items: center;
     width: 100%;
@@ -56,9 +56,9 @@ main {
     gap: 12px;
     margin-bottom: 12px;
 }
-.toolbar__buttons-group { display: flex; gap: 8px; }
+.toolbar__buttons-group { display: flex; background: url("/files/life.svg") no-repeat left center; background-size: 28px; padding-left: 32px; gap: 8px; }
 .toolbar__button {
-    display: flex; align-items: center; gap: 6px;
+    display: flex; background: url("/files/life.svg") no-repeat left center; background-size: 28px; padding-left: 32px; align-items: center; gap: 6px;
     padding: 8px 14px; font-size: 0.85rem;
 }
 .toolbar__player-name {
@@ -68,14 +68,14 @@ main {
     color: #e1e4e8;
 }
 .life {
-    display: flex;
+    display: flex; background: url("/files/life.svg") no-repeat left center; background-size: 28px; padding-left: 32px;
     align-items: center;
     gap: 4px;
     font-size: 1.1rem;
     font-weight: 700;
     color: #f85149;
 }
-.life::before {
+.life::before { display: none; /* replaced by svg */
     content: "\2665";
     font-size: 1.4rem;
 }
@@ -90,13 +90,13 @@ main {
 
 /* Start screen */
 .game {
-    display: flex;
+    display: flex; background: url("/files/life.svg") no-repeat left center; background-size: 28px; padding-left: 32px;
     justify-content: center;
     flex-direction: column;
     height: 100%;
 }
 .game__start {
-    display: flex;
+    display: flex; background: url("/files/life.svg") no-repeat left center; background-size: 28px; padding-left: 32px;
     flex-direction: column;
     align-items: center;
     margin: auto;
@@ -130,7 +130,7 @@ main {
 /* Difficulty */
 .difficulty__list {
     list-style: none;
-    display: flex;
+    display: flex; background: url("/files/life.svg") no-repeat left center; background-size: 28px; padding-left: 32px;
     gap: 10px;
 }
 .difficulty__item {
