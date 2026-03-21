@@ -10,7 +10,6 @@ html, body {
 
 .text-center { text-align: center; }
 
-/* Buttons */
 .btn {
     display: inline-block;
     font-weight: 500;
@@ -32,11 +31,10 @@ html, body {
 .btn-success:hover { background: #56d364; }
 .btn-danger { color: #fff; background: #f85149; }
 .btn-danger:hover { background: #ff6e67; }
-.btn-group { display: flex; background: url("/files/life.svg") no-repeat left center; background-size: 28px; padding-left: 32px; gap: 12px; justify-content: center; margin-top: 16px; }
+.btn-group { display: flex; gap: 12px; justify-content: center; margin-top: 16px; }
 
-/* Main layout */
 main {
-    display: flex; background: url("/files/life.svg") no-repeat left center; background-size: 28px; padding-left: 32px;
+    display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
@@ -45,7 +43,6 @@ main {
     padding: 10px;
 }
 
-/* Toolbar */
 .toolbar {
     display: none;
     padding: 12px 16px;
@@ -56,9 +53,9 @@ main {
     gap: 12px;
     margin-bottom: 12px;
 }
-.toolbar__buttons-group { display: flex; background: url("/files/life.svg") no-repeat left center; background-size: 28px; padding-left: 32px; gap: 8px; }
+.toolbar__buttons-group { display: flex; gap: 8px; }
 .toolbar__button {
-    display: flex; background: url("/files/life.svg") no-repeat left center; background-size: 28px; padding-left: 32px; align-items: center; gap: 6px;
+    display: flex; align-items: center; gap: 6px;
     padding: 8px 14px; font-size: 0.85rem;
 }
 .toolbar__player-name {
@@ -68,19 +65,17 @@ main {
     color: #e1e4e8;
 }
 .life {
-    display: flex; background: url("/files/life.svg") no-repeat left center; background-size: 28px; padding-left: 32px;
+    display: flex;
     align-items: center;
-    gap: 4px;
+    background: url("/files/life.svg") no-repeat left center;
+    background-size: 28px;
+    padding-left: 34px;
     font-size: 1.1rem;
     font-weight: 700;
     color: #f85149;
-}
-.life::before { display: none; /* replaced by svg */
-    content: "\2665";
-    font-size: 1.4rem;
+    min-height: 28px;
 }
 
-/* Container */
 .container {
     width: 100%;
     max-width: 1100px;
@@ -88,15 +83,14 @@ main {
     padding: 10px;
 }
 
-/* Start screen */
 .game {
-    display: flex; background: url("/files/life.svg") no-repeat left center; background-size: 28px; padding-left: 32px;
+    display: flex;
     justify-content: center;
     flex-direction: column;
     height: 100%;
 }
 .game__start {
-    display: flex; background: url("/files/life.svg") no-repeat left center; background-size: 28px; padding-left: 32px;
+    display: flex;
     flex-direction: column;
     align-items: center;
     margin: auto;
@@ -127,10 +121,9 @@ main {
     filter: drop-shadow(0 0 20px rgba(63, 185, 80, 0.5));
 }
 
-/* Difficulty */
 .difficulty__list {
     list-style: none;
-    display: flex; background: url("/files/life.svg") no-repeat left center; background-size: 28px; padding-left: 32px;
+    display: flex;
     gap: 10px;
 }
 .difficulty__item {
@@ -157,7 +150,6 @@ main {
     padding: 12px 24px;
 }
 
-/* Game field */
 .game__field {
     display: none;
     grid-template: 1fr / repeat(6, 1fr);
@@ -169,7 +161,6 @@ main {
     justify-items: center;
 }
 
-/* Cards */
 .card {
     background: linear-gradient(135deg, #f0883e, #d29922);
     border-radius: 12px;
@@ -195,16 +186,13 @@ main {
     50% { transform: scale(1.08) rotateY(90deg); }
     100% { transform: scale(1) rotateY(0deg); }
 }
-.card.opened {
-    animation: flip-card 0.5s ease both;
-}
+.card.opened { animation: flip-card 0.5s ease both; }
 .card.blocked {
     opacity: 0.3;
     border-color: #3fb950;
     pointer-events: none;
 }
 
-/* Notice / Modal */
 .notice {
     display: none;
     justify-content: center;
@@ -239,14 +227,12 @@ main {
     font-size: 1.2rem;
 }
 
-/* Responsive */
 @media (max-width: 600px) {
     .toolbar__button strong { display: none; }
     .toolbar__player-name { font-size: 0.9rem; }
     .game__title { font-size: 1.3rem; }
     .game__play-btn { width: 80px; height: 80px; }
     .game__start { padding: 24px 16px; }
-
     .game__field { padding: 10px; gap: 8px; }
     .game__field.easy { grid-template-columns: repeat(3, 1fr); }
     .game__field.easy .grid__item { width: 5.5rem; height: 7.5rem; padding: 4px; }
